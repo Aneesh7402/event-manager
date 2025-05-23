@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  mailhog:
+    image: mailhog/mailhog
+    ports:
+      - "1025:1025"  # SMTP port for sending emails
+      - "8025:8025"  # Web UI for viewing emails
+    networks:
+      - mailhog_network
+
+networks:
+  mailhog_network:
+    driver: bridge
