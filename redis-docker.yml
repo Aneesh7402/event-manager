@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  redis:
+    image: redis:latest
+    container_name: redis-container
+    ports:
+      - "6379:6379"   # Exposes Redis on port 6379
+    volumes:
+      - redis-data:/data   # Persist data to a volume
+    restart: always        # Ensure Redis container restarts automatically if it crashes or the system reboots
+
+volumes:
+  redis-data:
+    driver: local  # Define the volume for persistent Redis data
